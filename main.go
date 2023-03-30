@@ -19,6 +19,7 @@ const (
 )
 
 func main() {
+	fmt.Println("googleplayupload v0.5")
 	var failed bool
 
 	credentialsPath, ok := os.LookupEnv(credentialsEnv)
