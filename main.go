@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"google.golang.org/api/androidpublisher/v3"
+	"google.golang.org/api/googleapi"
 	"google.golang.org/api/option"
 )
 
@@ -57,7 +58,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	uploadRes, err := service.Edits.Bundles.Upload(packageName, idRes.Id).Media(packageFile).Do()
+	uploadRes, err := service.Edits.Bundles.Upload(packageName, idRes.Id).Media(packageFile, googleapi.ContentType("application/octet-stream")).Do()
 	if err != nil {
 		log.Fatalf("error uploading package, %v\n", err)
 		os.Exit(1)
